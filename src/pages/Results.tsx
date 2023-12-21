@@ -203,7 +203,7 @@ const Results = (): JSX.Element => {
         if (!(window as any).webCheck) (window as any).webCheck = {};
         if (data) (window as any).webCheck[job] = data;
       }
-  
+
       if (newState === 'error') {
         console.log(
           `%cFetch Error - ${job}%c\n\n${timeString}%c The ${job} job failed `
@@ -253,7 +253,7 @@ const Results = (): JSX.Element => {
     if (addressType === 'ipV4' && address) {
       setIpAddress(address);
     }
-  }, [address, addressType, setIpAddress]);  
+  }, [address, addressType, setIpAddress]);
 
   // Get IP address location info
   const [locationResults, updateLocationResults] = useMotherHook<ServerLocation>({
@@ -851,11 +851,11 @@ const Results = (): JSX.Element => {
     setModalContent(content);
     setModalOpen(true);
   };
-  
+
   return (
     <ResultsOuter>
       <Nav>
-      { address && 
+      { address &&
         <Heading color={colors.textColor} size="medium">
           { addressType === 'url' && <a href={address}><img width="32px" src={`https://icon.horse/icon/${makeSiteName(address)}`} alt="" /></a> }
           {makeSiteName(address)}
@@ -880,10 +880,10 @@ const Results = (): JSX.Element => {
         </div>
         <div className="one-half">
         <span className="group-label">Search</span>
-        <input 
-          type="text" 
-          placeholder="Filter Results" 
-          value={searchTerm} 
+        <input
+          type="text"
+          placeholder="Filter Results"
+          value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <span className="toggle-filters" onClick={() => setShowFilters(false)}>Hide</span>
@@ -894,7 +894,7 @@ const Results = (): JSX.Element => {
             <a href="#view-download-raw-data"><span className="toggle-filters">Export Data</span></a>
             <a href="/about"><span className="toggle-filters">Learn about the Results</span></a>
             <a href="/about#additional-resources"><span className="toggle-filters">More tools</span></a>
-            <a href="https://github.com/lissy93/web-check"><span className="toggle-filters">View GitHub</span></a>
+            {/*<a href="https://github.com/lissy93/web-check"><span className="toggle-filters">View GitHub</span></a>*/}
           </div>
       ) }
       </FilterButtons>

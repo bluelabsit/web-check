@@ -12,13 +12,13 @@ const StyledFooter = styled.footer`
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  opacity: 0.75;
+  opacity: 0.15;
   transition: all 0.2s ease-in-out;
   @media (min-width: 1024px) {
     justify-content: space-between;
   }
   &:hover {
-    opacity: 1;
+    opacity: .5;
   }
   span {
     margin: 0 0.5rem;
@@ -42,17 +42,10 @@ const Link = styled.a`
 
 const Footer = (props: { isFixed?: boolean }): JSX.Element => {
   const licenseUrl = 'https://github.com/lissy93/web-check/blob/master/LICENSE';
-  const authorUrl = 'https://aliciasykes.com';
-  const githubUrl = 'https://github.com/lissy93/web-check';
   return (
   <StyledFooter style={props.isFixed ? {position: 'fixed'} : {}}>
     <span>
-      View source at <Link href={githubUrl}>github.com/lissy93/web-check</Link>
-    </span>
-    <span>
-      <Link href="/about">Web-Check</Link> is
-      licensed under <Link href={licenseUrl}>MIT</Link> -
-      © <Link href={authorUrl}>Alicia Sykes</Link> 2023
+      <Link href="/about">About Bluelebs Web-Check</Link> | <Link href={licenseUrl}>Terms and copyright</Link>
     </span>
   </StyledFooter>
   );

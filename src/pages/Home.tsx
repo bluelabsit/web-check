@@ -95,7 +95,7 @@ const SiteFeaturesWrapper = styled(StyledCard)`
 `;
 
 const Home = (): JSX.Element => {
-  const defaultPlaceholder = 'e.g. https://duck.com/';
+  const defaultPlaceholder = 'e.g. https://www.bluelabs.it/';
   const [userInput, setUserInput] = useState('');
   const [errorMsg, setErrMsg] = useState('');
   const [placeholder] = useState(defaultPlaceholder);
@@ -106,7 +106,7 @@ const Home = (): JSX.Element => {
   const submit = () => {
     let address = userInput.endsWith("/") ? userInput.slice(0, -1) : userInput;
     const addressType = determineAddressType(address);
-  
+
     if (addressType === 'empt') {
       setErrMsg('Field must not be empty');
     } else if (addressType === 'err') {
@@ -120,7 +120,7 @@ const Home = (): JSX.Element => {
       navigate(`/results/${encodeURIComponent(address)}`, resultRouteParams);
     }
   };
-  
+
 
   /* Update user input state, and hide error message if field is valid */
   const inputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -156,8 +156,7 @@ const Home = (): JSX.Element => {
       <FancyBackground />
       <UserInputMain onSubmit={formSubmitEvent}>
         <Heading as="h1" size="xLarge" align="center" color={colors.primary}>
-          <img width="64" src="/web-check.png" alt="Web Check Icon" />
-          Web Check
+          Bluelabs Web Check
         </Heading>
         <Input
           id="user-input"
@@ -180,17 +179,6 @@ const Home = (): JSX.Element => {
             {docs.map((doc, index) => (<li key={index}>{doc.title}</li>))}
             <li><a href="/about">+ more!</a></li>
           </ul>
-        </div>
-        <div className="links">
-          <a href="https://github.com/lissy93/web-check" title="Check out the source code and documentation on GitHub, and get support or contribute">
-            <Button>View on GitHub</Button>
-          </a>
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/web-check" title="Deploy your own private or public instance of Web-Check to Netlify">
-            <Button>Deploy your own</Button>
-          </a>
-          <a href="/about#api-documentation" title="View the API documentation, to use Web-Check programmatically">
-            <Button>API Docs</Button>
-          </a>
         </div>
       </SiteFeaturesWrapper>
       <Footer isFixed={true} />
